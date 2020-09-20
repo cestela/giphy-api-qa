@@ -6,24 +6,17 @@ Feature: Validating that retrieved Images show correct image sources
     Given a set of query params
       |api_key      |q         |limit |
       |dc6zaTOxFJmzC|funny+cat |2     |
-    When user sends GET operation to Giphy search API
+    When user sends GET operation to "/gifs/search" Giphy search API endpoint
     Then response status is 200
-    And response "data.size()" is "greater than" 0
-    And response "meta.status" is 200
-    And response "meta.msg" is "OK"
-    And response "pagination.count" equals data size
     And Images urls are not broken
 
+    @ignore
   #Current scenario may fail due to API exceeding requests
   #when executing all tests together
   Scenario: Retrieved images width, height and sizes show feasible measurements
     Given a set of query params
       |api_key      |q         |limit |
       |dc6zaTOxFJmzC|funny+cat |2     |
-    When user sends GET operation to Giphy search API
+    When user sends GET operation to "/gifs/search" Giphy search API endpoint
     Then response status is 200
-    And response "data.size()" is "greater than" 0
-    And response "meta.status" is 200
-    And response "meta.msg" is "OK"
-    And response "pagination.count" equals data size
     And Images width, height and sizes are greater than 0

@@ -49,12 +49,12 @@ public class StepDefinition {
 
     }
 
-    @When("user sends GET operation to Giphy search API")
-    public void user_sends_get_operation_to_giphy_search_api() {
+    @When("user sends GET operation to {string} Giphy search API endpoint")
+    public void user_sends_get_operation_to_giphy_search_api(String endpoint) {
 
         ValidatableResponse validatableResponse = given()
                 .spec(requestSpecification)
-                .get("/gifs/search")
+                .get(endpoint)
                 .then();
 
         response = validatableResponse
@@ -85,7 +85,9 @@ public class StepDefinition {
         if(comparator.equals("greater than")){
             matcher = greaterThan(value);
         }else if(comparator.equals("equal to")){
-            matcher = lessThanOrEqualTo(value);
+            matcher = equalTo(value);
+        }else if(comparator.equals("less than")){
+            matcher = lessThan(value);
         }
 
         assertThat(jsonPath.getInt(element), Objects.requireNonNull(matcher));
@@ -172,15 +174,15 @@ public class StepDefinition {
             asssertImagesSizesDownsized(images);
             assertImagesSizesFixedHeight(images);
             assertImagesSizesFixedWidth(images);
-            asssertMp4Size(images.getLooping().getMp4_size());
             assertImagesSizesPreview(images);
+            assertImagesSizesPreviewGif(images);
         });
     }
 
 
-
-
-
-
-
+    @And("response {string} is not empty")
+    public void responseIsNotEmpty(String element) {
+        String elementValue = jsonPath.getString(element);
+        assertThat(elementValue, is(not(blankOrNullString())));
+    }
 }

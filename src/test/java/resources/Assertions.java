@@ -13,50 +13,103 @@ import static steps.StepDefinition.minimumSize;
 public class Assertions {
 
     public static void assertImagesSizesPreview(Images images) {
-        assertImageHeight(images.getPreview().getHeight());
-        assertImageWidth(images.getPreview().getWidth());
-        asssertMp4Size(images.getPreview().getMp4_size());
-        assertBasicImagesSizes(images.getPreview_gif());
+        if(images.getPreview() != null){
+            assertBasicImagesHeightAndWidth(images.getPreview());
+            if(images.getPreview().getMp4_size()!= null){
+                asssertMp4Size(images.getPreview().getMp4_size());
+            }
+        }
     }
 
     public static void assertImagesSizesFixedWidth(Images images) {
-        assertImagesSizes(images.getFixed_width());
-        assertBasicImagesSizes(images.getFixed_width_downsampled());
-        asssertWebpSize(images.getFixed_width_downsampled().getWebp_size());
-        assertImagesSizes(images.getFixed_width_small());
-        assertBasicImagesSizes(images.getFixed_width_small_still());
-        assertBasicImagesSizes(images.getFixed_width_still());
+        if(images.getFixed_width() !=  null){
+            assertImagesSizes(images.getFixed_width());
+        }
+
+        if(images.getFixed_width_downsampled() != null) {
+            assertBasicImagesHeightAndWidth(images.getFixed_width_downsampled());
+            asssertWebpSize(images.getFixed_width_downsampled().getWebp_size());
+        }
+
+        if(images.getFixed_width_small() != null){
+            assertImagesSizes(images.getFixed_width_small());
+        }
+
+        if(images.getFixed_width_small_still() != null){
+            assertBasicImagesHeightAndWidth(images.getFixed_width_small_still());
+        }
+
+        if(images.getFixed_width_still() != null){
+            assertBasicImagesHeightAndWidth(images.getFixed_width_still());
+        }
     }
 
     public static void assertImagesSizesFixedHeight(Images images) {
-        assertImagesSizes(images.getFixed_height());
-        assertBasicImagesSizes(images.getFixed_height_downsampled());
-        asssertWebpSize(images.getFixed_height_downsampled().getWebp_size());
-        assertImagesSizes(images.getFixed_height_small());
-        assertBasicImagesSizes(images.getFixed_height_small_still());
-        assertBasicImagesSizes(images.getFixed_height_still());
+        if(images.getFixed_height() != null){
+            assertImagesSizes(images.getFixed_height());
+        }
+
+        if(images.getFixed_height_downsampled() != null){
+            assertBasicImagesHeightAndWidth(images.getFixed_height_downsampled());
+            asssertWebpSize(images.getFixed_height_downsampled().getWebp_size());
+        }
+
+        if(images.getFixed_height_small() != null){
+            assertImagesSizes(images.getFixed_height_small());
+
+        }
+
+        if(images.getFixed_height_small_still() != null){
+            assertBasicImagesHeightAndWidth(images.getFixed_height_small_still());
+        }
+
+        if(images.getFixed_height_still() != null) {
+            assertBasicImagesHeightAndWidth(images.getFixed_height_still());
+        }
     }
 
     public static void asssertImagesSizesDownsized(Images images) {
-        assertBasicImagesSizes(images.getDownsized());
-        assertBasicImagesSizes(images.getDownsized_large());
-        assertBasicImagesSizes(images.getDownsized_medium());
-        assertBasicImagesSizes(images.getDownsized_medium());
-        assertImageHeight(images.getDownsized_small().getHeight());
-        assertImageWidth(images.getDownsized_small().getWidth());
-        asssertMp4Size(images.getDownsized_small().getMp4_size());
-        assertBasicImagesSizes(images.getDownsized_still());
+        if(images.getDownsized() != null){
+            assertBasicImagesSizes(images.getDownsized());
+        }
+        if(images.getDownsized_large() != null){
+            assertBasicImagesSizes(images.getDownsized_large());
+        }
+        if(images.getDownsized_medium() != null){
+            assertBasicImagesSizes(images.getDownsized_medium());
+        }
+
+        if(images.getDownsized_small() != null){
+            assertBasicImagesHeightAndWidth(images.getDownsized_small());
+            asssertMp4Size(images.getDownsized_small().getMp4_size());
+        }
+
+        if(images.getDownsized_still() != null){
+            assertBasicImagesHeightAndWidth(images.getDownsized_still());
+
+        }
+
+
     }
 
     public static void assertImagesSizesOriginal(Images images) {
-        assertImagesSizes(images.getOriginal());
-        assertBasicImagesSizes(images.getOriginal_still());
+        if(images.getOriginal() != null){
+            assertImagesSizes(images.getOriginal());
+        }
+        if(images.getOriginal_still() != null){
+            assertBasicImagesHeightAndWidth(images.getOriginal_still());
+        }
     }
 
     public static void assertImagesSizes(ImageSize imageSize){
+
         assertBasicImagesSizes(imageSize);
-        asssertMp4Size(imageSize.getMp4_size());
-        assertThat(Integer.valueOf(imageSize.getWebp_size()), greaterThan(minimumSize));
+        if(imageSize.getMp4() != null){
+            asssertMp4Size(imageSize.getMp4_size());
+        }
+        if(imageSize.getWebp_size() != null){
+            asssertWebpSize(imageSize.getWebp_size());
+        }
 
 
     }
@@ -85,6 +138,11 @@ public class Assertions {
 
     }
 
+    public static void assertImagesSizesPreviewGif(Images images) {
+        if(images.getPreview_gif() != null){
+            assertBasicImagesHeightAndWidth(images.getPreview_gif());
+        }
+    }
     public static void checkOriginal(Images images) {
         given().get(images.getOriginal().getUrl()).then().statusCode(200);
         given().get(images.getOriginal().getMp4()).then().statusCode(200);
@@ -130,15 +188,33 @@ public class Assertions {
 
     }
 
+    public static void assertBasicImagesHeightAndWidth(ImageSize imageSize){
+        if(imageSize.getHeight() != null){
+            assertImageHeight(imageSize.getHeight());
+        }
+
+        if(imageSize.getWidth() != null){
+            assertImageWidth(imageSize.getWidth());
+        }
+
+    }
+
     public static void assertBasicImagesSizes(ImageSize imageSize) {
-        assertImageHeight(imageSize.getHeight());
-        assertImageWidth(imageSize.getWidth());
-        assertThat(Integer.valueOf(imageSize.getSize()), greaterThan(minimumSize));
+        assertBasicImagesHeightAndWidth(imageSize);
+        if(imageSize.getSize()!= null){
+            assertImageSize(imageSize.getSize());
+        }
+
     }
 
     public static void assertImageHeight(String height){
         assertThat(Integer.valueOf(height), greaterThan(minimumSize));
 
+    }
+
+    public static void assertImageSize(String size){
+
+        assertThat(Integer.valueOf(size), greaterThan(minimumSize));
     }
 
     public static void assertImageWidth(String width){
