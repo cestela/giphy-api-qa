@@ -1,0 +1,2077 @@
+[
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-09-19T17:56:55.612Z",
+        "line": 3,
+        "name": "Minimum query parameters search",
+        "description": "",
+        "id": "validating-giphy-search-api-with-a-basic-search;minimum-query-parameters-search",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 865000000,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "a set of query params",
+            "match": {
+              "location": "steps.StepDefinition.a_set_of_query_params(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "api_key",
+                  "q"
+                ]
+              },
+              {
+                "cells": [
+                  "dc6zaTOxFJmzC",
+                  "funny+cat"
+                ]
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 3539000000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user sends GET operation to Giphy search API",
+            "match": {
+              "location": "steps.StepDefinition.user_sends_get_operation_to_giphy_search_api()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 4000000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "response status is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 19
+                }
+              ],
+              "location": "steps.StepDefinition.responseStatusIs(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 180000000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "response \"data.size()\" is \"greater than\" 0",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"data.size()\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"greater than\"",
+                  "offset": 26
+                },
+                {
+                  "val": "0",
+                  "offset": 41
+                }
+              ],
+              "location": "steps.StepDefinition.response_is_greater_than(java.lang.String,java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 20000000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "response \"meta.status\" is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.status\"",
+                  "offset": 9
+                },
+                {
+                  "val": "200",
+                  "offset": 26
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 29000000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "response \"meta.msg\" is \"OK\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.msg\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"OK\"",
+                  "offset": 23
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 15000000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "response \"pagination.count\" equals data size",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"pagination.count\"",
+                  "offset": 9
+                }
+              ],
+              "location": "steps.StepDefinition.response_equals_data_size(java.lang.String)"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-09-19T17:57:00.535Z",
+        "line": 14,
+        "name": "Wrong api_key search",
+        "description": "",
+        "id": "validating-giphy-search-api-with-a-basic-search;wrong-api-key-search",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 7000000,
+              "status": "passed"
+            },
+            "line": 15,
+            "name": "a set of query params",
+            "match": {
+              "location": "steps.StepDefinition.a_set_of_query_params(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "api_key",
+                  "q"
+                ]
+              },
+              {
+                "cells": [
+                  "qatest",
+                  "funny+cat"
+                ]
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 2840000000,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "user sends GET operation to Giphy search API",
+            "match": {
+              "location": "steps.StepDefinition.user_sends_get_operation_to_giphy_search_api()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "response status is 403",
+            "match": {
+              "arguments": [
+                {
+                  "val": "403",
+                  "offset": 19
+                }
+              ],
+              "location": "steps.StepDefinition.responseStatusIs(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 18000000,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "response \"message\" is \"Invalid authentication credentials\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"message\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"Invalid authentication credentials\"",
+                  "offset": 22
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-09-19T17:57:03.418Z",
+        "line": 22,
+        "name": "No api_key in query params",
+        "description": "",
+        "id": "validating-giphy-search-api-with-a-basic-search;no-api-key-in-query-params",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "a set of query params",
+            "match": {
+              "location": "steps.StepDefinition.a_set_of_query_params(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "q"
+                ]
+              },
+              {
+                "cells": [
+                  "funny+cat"
+                ]
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 233000000,
+              "status": "passed"
+            },
+            "line": 26,
+            "name": "user sends GET operation to Giphy search API",
+            "match": {
+              "location": "steps.StepDefinition.user_sends_get_operation_to_giphy_search_api()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 27,
+            "name": "response status is 401",
+            "match": {
+              "arguments": [
+                {
+                  "val": "401",
+                  "offset": 19
+                }
+              ],
+              "location": "steps.StepDefinition.responseStatusIs(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 16000000,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "response \"message\" is \"No API key found in request\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"message\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"No API key found in request\"",
+                  "offset": 22
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-09-19T17:57:03.703Z",
+        "line": 30,
+        "name": "No results search",
+        "description": "",
+        "id": "validating-giphy-search-api-with-a-basic-search;no-results-search",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2000000,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "a set of query params",
+            "match": {
+              "location": "steps.StepDefinition.a_set_of_query_params(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "api_key",
+                  "q"
+                ]
+              },
+              {
+                "cells": [
+                  "dc6zaTOxFJmzC",
+                  "qatest"
+                ]
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 160000000,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "user sends GET operation to Giphy search API",
+            "match": {
+              "location": "steps.StepDefinition.user_sends_get_operation_to_giphy_search_api()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "response status is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 19
+                }
+              ],
+              "location": "steps.StepDefinition.responseStatusIs(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 18000000,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "response \"data.size()\" is \"equal to\" 0",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"data.size()\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"equal to\"",
+                  "offset": 26
+                },
+                {
+                  "val": "0",
+                  "offset": 37
+                }
+              ],
+              "location": "steps.StepDefinition.response_is_greater_than(java.lang.String,java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 22000000,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "response \"meta.status\" is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.status\"",
+                  "offset": 9
+                },
+                {
+                  "val": "200",
+                  "offset": 26
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 11000000,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "response \"meta.msg\" is \"OK\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.msg\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"OK\"",
+                  "offset": 23
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 15000000,
+              "status": "passed"
+            },
+            "line": 39,
+            "name": "response \"pagination.count\" is 0",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"pagination.count\"",
+                  "offset": 9
+                },
+                {
+                  "val": "0",
+                  "offset": 31
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Validating GIPHY Search API with a Basic Search",
+    "description": "",
+    "id": "validating-giphy-search-api-with-a-basic-search",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/features/basicsearch.feature",
+    "tags": []
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-09-19T17:57:03.964Z",
+        "line": 3,
+        "name": "Retrieved gifs links are not broken",
+        "description": "",
+        "id": "validating-that-retrieved-gifs-from-giphy-search-api-show-consistent-information;retrieved-gifs-links-are-not-broken",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2000000,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "a set of query params",
+            "match": {
+              "location": "steps.StepDefinition.a_set_of_query_params(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "api_key",
+                  "q",
+                  "limit"
+                ]
+              },
+              {
+                "cells": [
+                  "dc6zaTOxFJmzC",
+                  "funny+cat",
+                  "1"
+                ]
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 153000000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user sends GET operation to Giphy search API",
+            "match": {
+              "location": "steps.StepDefinition.user_sends_get_operation_to_giphy_search_api()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "response status is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 19
+                }
+              ],
+              "location": "steps.StepDefinition.responseStatusIs(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 28000000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "response \"data.size()\" is \"greater than\" 0",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"data.size()\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"greater than\"",
+                  "offset": 26
+                },
+                {
+                  "val": "0",
+                  "offset": 41
+                }
+              ],
+              "location": "steps.StepDefinition.response_is_greater_than(java.lang.String,java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 16000000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "response \"meta.status\" is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.status\"",
+                  "offset": 9
+                },
+                {
+                  "val": "200",
+                  "offset": 26
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 20000000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "response \"meta.msg\" is \"OK\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.msg\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"OK\"",
+                  "offset": 23
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 23000000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "response \"pagination.count\" equals data size",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"pagination.count\"",
+                  "offset": 9
+                }
+              ],
+              "location": "steps.StepDefinition.response_equals_data_size(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 18932000000,
+              "status": "passed"
+            },
+            "line": 13,
+            "name": "GIFs urls are not broken",
+            "match": {
+              "location": "steps.StepDefinition.gifsUrlsAreNotBroken()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-09-19T17:57:23.195Z",
+        "line": 15,
+        "name": "Retrieved gifs unshortened links contain GIPHYs unique gifs id",
+        "description": "",
+        "id": "validating-that-retrieved-gifs-from-giphy-search-api-show-consistent-information;retrieved-gifs-unshortened-links-contain-giphys-unique-gifs-id",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2000000,
+              "status": "passed"
+            },
+            "line": 16,
+            "name": "a set of query params",
+            "match": {
+              "location": "steps.StepDefinition.a_set_of_query_params(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "api_key",
+                  "q",
+                  "limit"
+                ]
+              },
+              {
+                "cells": [
+                  "dc6zaTOxFJmzC",
+                  "funny+cat",
+                  "5"
+                ]
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 151000000,
+              "status": "passed"
+            },
+            "line": 19,
+            "name": "user sends GET operation to Giphy search API",
+            "match": {
+              "location": "steps.StepDefinition.user_sends_get_operation_to_giphy_search_api()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "response status is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 19
+                }
+              ],
+              "location": "steps.StepDefinition.responseStatusIs(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 25000000,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "response \"data.size()\" is \"greater than\" 0",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"data.size()\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"greater than\"",
+                  "offset": 26
+                },
+                {
+                  "val": "0",
+                  "offset": 41
+                }
+              ],
+              "location": "steps.StepDefinition.response_is_greater_than(java.lang.String,java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 18000000,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "response \"meta.status\" is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.status\"",
+                  "offset": 9
+                },
+                {
+                  "val": "200",
+                  "offset": 26
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 10000000,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "response \"meta.msg\" is \"OK\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.msg\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"OK\"",
+                  "offset": 23
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 14000000,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "response \"pagination.count\" equals data size",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"pagination.count\"",
+                  "offset": 9
+                }
+              ],
+              "location": "steps.StepDefinition.response_equals_data_size(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2000000,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "GIFs unshortened urls contain gifs GIPHY Id",
+            "match": {
+              "location": "steps.StepDefinition.imagesUnshortenedUrlsContainGifsGIPHYId()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-09-19T17:57:23.439Z",
+        "line": 27,
+        "name": "Retrieved gifs user data links contain valid user info",
+        "description": "",
+        "id": "validating-that-retrieved-gifs-from-giphy-search-api-show-consistent-information;retrieved-gifs-user-data-links-contain-valid-user-info",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2000000,
+              "status": "passed"
+            },
+            "line": 28,
+            "name": "a set of query params",
+            "match": {
+              "location": "steps.StepDefinition.a_set_of_query_params(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "api_key",
+                  "q"
+                ]
+              },
+              {
+                "cells": [
+                  "dc6zaTOxFJmzC",
+                  "funny+cat"
+                ]
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 397000000,
+              "status": "passed"
+            },
+            "line": 31,
+            "name": "user sends GET operation to Giphy search API",
+            "match": {
+              "location": "steps.StepDefinition.user_sends_get_operation_to_giphy_search_api()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "response status is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 19
+                }
+              ],
+              "location": "steps.StepDefinition.responseStatusIs(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 87000000,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "response \"data.size()\" is \"greater than\" 0",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"data.size()\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"greater than\"",
+                  "offset": 26
+                },
+                {
+                  "val": "0",
+                  "offset": 41
+                }
+              ],
+              "location": "steps.StepDefinition.response_is_greater_than(java.lang.String,java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 12000000,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "response \"meta.status\" is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.status\"",
+                  "offset": 9
+                },
+                {
+                  "val": "200",
+                  "offset": 26
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 12000000,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "response \"meta.msg\" is \"OK\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.msg\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"OK\"",
+                  "offset": 23
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 14000000,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "response \"pagination.count\" equals data size",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"pagination.count\"",
+                  "offset": 9
+                }
+              ],
+              "location": "steps.StepDefinition.response_equals_data_size(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "response username matches user.username",
+            "match": {
+              "location": "steps.StepDefinition.responseUsernameMatchesUserUsername()"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 2159000000,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "response user profile url is not broken",
+            "match": {
+              "location": "steps.StepDefinition.responseUserProfileUrlIsNotBroken()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-09-19T17:57:26.160Z",
+        "line": 40,
+        "name": "Retrieved gifs imported date are before than system\u0027s date",
+        "description": "",
+        "id": "validating-that-retrieved-gifs-from-giphy-search-api-show-consistent-information;retrieved-gifs-imported-date-are-before-than-system-s-date",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 41,
+            "name": "a set of query params",
+            "match": {
+              "location": "steps.StepDefinition.a_set_of_query_params(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "api_key",
+                  "q"
+                ]
+              },
+              {
+                "cells": [
+                  "dc6zaTOxFJmzC",
+                  "funny+cat"
+                ]
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 333000000,
+              "status": "passed"
+            },
+            "line": 44,
+            "name": "user sends GET operation to Giphy search API",
+            "match": {
+              "location": "steps.StepDefinition.user_sends_get_operation_to_giphy_search_api()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 45,
+            "name": "response status is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 19
+                }
+              ],
+              "location": "steps.StepDefinition.responseStatusIs(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 70000000,
+              "status": "passed"
+            },
+            "line": 46,
+            "name": "response \"data.size()\" is \"greater than\" 0",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"data.size()\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"greater than\"",
+                  "offset": 26
+                },
+                {
+                  "val": "0",
+                  "offset": 41
+                }
+              ],
+              "location": "steps.StepDefinition.response_is_greater_than(java.lang.String,java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 14000000,
+              "status": "passed"
+            },
+            "line": 47,
+            "name": "response \"meta.status\" is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.status\"",
+                  "offset": 9
+                },
+                {
+                  "val": "200",
+                  "offset": 26
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 15000000,
+              "status": "passed"
+            },
+            "line": 48,
+            "name": "response \"meta.msg\" is \"OK\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.msg\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"OK\"",
+                  "offset": 23
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 10000000,
+              "status": "passed"
+            },
+            "line": 49,
+            "name": "response \"pagination.count\" equals data size",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"pagination.count\"",
+                  "offset": 9
+                }
+              ],
+              "location": "steps.StepDefinition.response_equals_data_size(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 16000000,
+              "status": "passed"
+            },
+            "line": 50,
+            "name": "response GIFs import datetime are before than system\u0027s date",
+            "match": {
+              "location": "steps.StepDefinition.responseGIFsImportDatetimeAreBeforeThanSystemSDate()"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Validating that retrieved GIFs from GIPHY Search API show consistent information",
+    "description": "",
+    "id": "validating-that-retrieved-gifs-from-giphy-search-api-show-consistent-information",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/features/gifsinfo.feature",
+    "tags": []
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-09-19T17:57:26.647Z",
+        "line": 4,
+        "name": "Retrieved images links are not broken",
+        "description": "",
+        "id": "validating-that-retrieved-images-show-correct-image-sources;retrieved-images-links-are-not-broken",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 5,
+            "name": "a set of query params",
+            "match": {
+              "location": "steps.StepDefinition.a_set_of_query_params(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "api_key",
+                  "q",
+                  "limit"
+                ]
+              },
+              {
+                "cells": [
+                  "dc6zaTOxFJmzC",
+                  "funny+cat",
+                  "2"
+                ]
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 214000000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "user sends GET operation to Giphy search API",
+            "match": {
+              "location": "steps.StepDefinition.user_sends_get_operation_to_giphy_search_api()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "error_message": "java.lang.AssertionError: expected:\u003c200\u003e but was:\u003c429\u003e\n\tat org.junit.Assert.fail(Assert.java:88)\n\tat org.junit.Assert.failNotEquals(Assert.java:743)\n\tat org.junit.Assert.assertEquals(Assert.java:118)\n\tat org.junit.Assert.assertEquals(Assert.java:555)\n\tat org.junit.Assert.assertEquals(Assert.java:542)\n\tat steps.StepDefinition.responseStatusIs(StepDefinition.java:71)\n\tat ✽.response status is 200(file:///Users/carlos/Desktop/JavaPrograms/qiphy-api-qa/giphy-api-qa/src/test/java/features/imagesinfo.feature:9)\n",
+              "duration": 2000000,
+              "status": "failed"
+            },
+            "line": 9,
+            "name": "response status is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 19
+                }
+              ],
+              "location": "steps.StepDefinition.responseStatusIs(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 10,
+            "name": "response \"data.size()\" is \"greater than\" 0",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"data.size()\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"greater than\"",
+                  "offset": 26
+                },
+                {
+                  "val": "0",
+                  "offset": 41
+                }
+              ],
+              "location": "steps.StepDefinition.response_is_greater_than(java.lang.String,java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "skipped"
+            },
+            "line": 11,
+            "name": "response \"meta.status\" is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.status\"",
+                  "offset": 9
+                },
+                {
+                  "val": "200",
+                  "offset": 26
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 12,
+            "name": "response \"meta.msg\" is \"OK\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.msg\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"OK\"",
+                  "offset": 23
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 13,
+            "name": "response \"pagination.count\" equals data size",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"pagination.count\"",
+                  "offset": 9
+                }
+              ],
+              "location": "steps.StepDefinition.response_equals_data_size(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "skipped"
+            },
+            "line": 14,
+            "name": "Images urls are not broken",
+            "match": {
+              "location": "steps.StepDefinition.imagesUrlsAreNotBroken()"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-09-19T17:57:26.928Z",
+        "line": 17,
+        "name": "Retrieved images width, height and sizes show feasible measurements",
+        "description": "",
+        "id": "validating-that-retrieved-images-show-correct-image-sources;retrieved-images-width--height-and-sizes-show-feasible-measurements",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 2000000,
+              "status": "passed"
+            },
+            "line": 18,
+            "name": "a set of query params",
+            "match": {
+              "location": "steps.StepDefinition.a_set_of_query_params(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "api_key",
+                  "q",
+                  "limit"
+                ]
+              },
+              {
+                "cells": [
+                  "dc6zaTOxFJmzC",
+                  "funny+cat",
+                  "2"
+                ]
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 222000000,
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "user sends GET operation to Giphy search API",
+            "match": {
+              "location": "steps.StepDefinition.user_sends_get_operation_to_giphy_search_api()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "error_message": "java.lang.AssertionError: expected:\u003c200\u003e but was:\u003c429\u003e\n\tat org.junit.Assert.fail(Assert.java:88)\n\tat org.junit.Assert.failNotEquals(Assert.java:743)\n\tat org.junit.Assert.assertEquals(Assert.java:118)\n\tat org.junit.Assert.assertEquals(Assert.java:555)\n\tat org.junit.Assert.assertEquals(Assert.java:542)\n\tat steps.StepDefinition.responseStatusIs(StepDefinition.java:71)\n\tat ✽.response status is 200(file:///Users/carlos/Desktop/JavaPrograms/qiphy-api-qa/giphy-api-qa/src/test/java/features/imagesinfo.feature:22)\n",
+              "duration": 1000000,
+              "status": "failed"
+            },
+            "line": 22,
+            "name": "response status is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 19
+                }
+              ],
+              "location": "steps.StepDefinition.responseStatusIs(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 23,
+            "name": "response \"data.size()\" is \"greater than\" 0",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"data.size()\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"greater than\"",
+                  "offset": 26
+                },
+                {
+                  "val": "0",
+                  "offset": 41
+                }
+              ],
+              "location": "steps.StepDefinition.response_is_greater_than(java.lang.String,java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 24,
+            "name": "response \"meta.status\" is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.status\"",
+                  "offset": 9
+                },
+                {
+                  "val": "200",
+                  "offset": 26
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 25,
+            "name": "response \"meta.msg\" is \"OK\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.msg\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"OK\"",
+                  "offset": 23
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 26,
+            "name": "response \"pagination.count\" equals data size",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"pagination.count\"",
+                  "offset": 9
+                }
+              ],
+              "location": "steps.StepDefinition.response_equals_data_size(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "status": "skipped"
+            },
+            "line": 27,
+            "name": "Images width, height and sizes are greater than 0",
+            "match": {
+              "arguments": [
+                {
+                  "val": "0",
+                  "offset": 48
+                }
+              ],
+              "location": "steps.StepDefinition.imagesWidthHeightAndSizesAreGreaterThan(int)"
+            },
+            "keyword": "And "
+          }
+        ]
+      }
+    ],
+    "name": "Validating that retrieved Images show correct image sources",
+    "description": "",
+    "id": "validating-that-retrieved-images-show-correct-image-sources",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/features/imagesinfo.feature",
+    "tags": []
+  },
+  {
+    "line": 1,
+    "elements": [
+      {
+        "start_timestamp": "2020-09-19T17:57:27.198Z",
+        "line": 3,
+        "name": "Limited rating for retrieved GIFs",
+        "description": "",
+        "id": "validating-giphy-search-api-with-different-query-params-search;limited-rating-for-retrieved-gifs",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 4,
+            "name": "a set of query params",
+            "match": {
+              "location": "steps.StepDefinition.a_set_of_query_params(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "api_key",
+                  "q",
+                  "rating"
+                ]
+              },
+              {
+                "cells": [
+                  "dc6zaTOxFJmzC",
+                  "fire",
+                  "pg"
+                ]
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 406000000,
+              "status": "passed"
+            },
+            "line": 7,
+            "name": "user sends GET operation to Giphy search API",
+            "match": {
+              "location": "steps.StepDefinition.user_sends_get_operation_to_giphy_search_api()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 8,
+            "name": "response status is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 19
+                }
+              ],
+              "location": "steps.StepDefinition.responseStatusIs(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 80000000,
+              "status": "passed"
+            },
+            "line": 9,
+            "name": "response \"data.size()\" is \"greater than\" 0",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"data.size()\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"greater than\"",
+                  "offset": 26
+                },
+                {
+                  "val": "0",
+                  "offset": 41
+                }
+              ],
+              "location": "steps.StepDefinition.response_is_greater_than(java.lang.String,java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 10000000,
+              "status": "passed"
+            },
+            "line": 10,
+            "name": "response \"meta.status\" is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.status\"",
+                  "offset": 9
+                },
+                {
+                  "val": "200",
+                  "offset": 26
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 18000000,
+              "status": "passed"
+            },
+            "line": 11,
+            "name": "response \"meta.msg\" is \"OK\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.msg\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"OK\"",
+                  "offset": 23
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 4000000,
+              "status": "passed"
+            },
+            "line": 12,
+            "name": "response gifs ratings are not",
+            "match": {
+              "location": "steps.StepDefinition.response_gifs_ratings_are_not(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "pg-13",
+                  "r"
+                ]
+              }
+            ],
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 15000000,
+              "status": "passed"
+            },
+            "line": 14,
+            "name": "response \"pagination.count\" equals data size",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"pagination.count\"",
+                  "offset": 9
+                }
+              ],
+              "location": "steps.StepDefinition.response_equals_data_size(java.lang.String)"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-09-19T17:57:27.765Z",
+        "line": 16,
+        "name": "Limited quantity for retrieved GIFs",
+        "description": "",
+        "id": "validating-giphy-search-api-with-different-query-params-search;limited-quantity-for-retrieved-gifs",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 17,
+            "name": "a set of query params",
+            "match": {
+              "location": "steps.StepDefinition.a_set_of_query_params(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "api_key",
+                  "q",
+                  "limit"
+                ]
+              },
+              {
+                "cells": [
+                  "dc6zaTOxFJmzC",
+                  "funny+cat",
+                  "25"
+                ]
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 215000000,
+              "status": "passed"
+            },
+            "line": 20,
+            "name": "user sends GET operation to Giphy search API",
+            "match": {
+              "location": "steps.StepDefinition.user_sends_get_operation_to_giphy_search_api()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "status": "passed"
+            },
+            "line": 21,
+            "name": "response status is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 19
+                }
+              ],
+              "location": "steps.StepDefinition.responseStatusIs(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 52000000,
+              "status": "passed"
+            },
+            "line": 22,
+            "name": "response \"data.size()\" is \"equal to\" 25",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"data.size()\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"equal to\"",
+                  "offset": 26
+                },
+                {
+                  "val": "25",
+                  "offset": 37
+                }
+              ],
+              "location": "steps.StepDefinition.response_is_greater_than(java.lang.String,java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 8000000,
+              "status": "passed"
+            },
+            "line": 23,
+            "name": "response \"meta.status\" is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.status\"",
+                  "offset": 9
+                },
+                {
+                  "val": "200",
+                  "offset": 26
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 8000000,
+              "status": "passed"
+            },
+            "line": 24,
+            "name": "response \"meta.msg\" is \"OK\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.msg\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"OK\"",
+                  "offset": 23
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 13000000,
+              "status": "passed"
+            },
+            "line": 25,
+            "name": "response \"pagination.count\" equals data size",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"pagination.count\"",
+                  "offset": 9
+                }
+              ],
+              "location": "steps.StepDefinition.response_equals_data_size(java.lang.String)"
+            },
+            "keyword": "And "
+          }
+        ]
+      },
+      {
+        "start_timestamp": "2020-09-19T17:57:28.080Z",
+        "before": [
+          {
+            "result": {
+              "duration": 438000000,
+              "status": "passed"
+            },
+            "match": {
+              "location": "steps.Hooks.beforeCustomOffset()"
+            }
+          }
+        ],
+        "line": 28,
+        "name": "Custom offset for retrieved GIFs",
+        "description": "",
+        "id": "validating-giphy-search-api-with-different-query-params-search;custom-offset-for-retrieved-gifs",
+        "type": "scenario",
+        "keyword": "Scenario",
+        "steps": [
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 29,
+            "name": "a set of query params",
+            "match": {
+              "location": "steps.StepDefinition.a_set_of_query_params(io.cucumber.datatable.DataTable)"
+            },
+            "rows": [
+              {
+                "cells": [
+                  "api_key",
+                  "q",
+                  "offset"
+                ]
+              },
+              {
+                "cells": [
+                  "dc6zaTOxFJmzC",
+                  "funny+cat",
+                  "4"
+                ]
+              }
+            ],
+            "keyword": "Given "
+          },
+          {
+            "result": {
+              "duration": 280000000,
+              "status": "passed"
+            },
+            "line": 32,
+            "name": "user sends GET operation to Giphy search API",
+            "match": {
+              "location": "steps.StepDefinition.user_sends_get_operation_to_giphy_search_api()"
+            },
+            "keyword": "When "
+          },
+          {
+            "result": {
+              "duration": 1000000,
+              "status": "passed"
+            },
+            "line": 33,
+            "name": "response status is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "200",
+                  "offset": 19
+                }
+              ],
+              "location": "steps.StepDefinition.responseStatusIs(int)"
+            },
+            "keyword": "Then "
+          },
+          {
+            "result": {
+              "duration": 82000000,
+              "status": "passed"
+            },
+            "line": 34,
+            "name": "response \"data.size()\" is \"greater than\" 0",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"data.size()\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"greater than\"",
+                  "offset": 26
+                },
+                {
+                  "val": "0",
+                  "offset": 41
+                }
+              ],
+              "location": "steps.StepDefinition.response_is_greater_than(java.lang.String,java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 17000000,
+              "status": "passed"
+            },
+            "line": 35,
+            "name": "response \"meta.status\" is 200",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.status\"",
+                  "offset": 9
+                },
+                {
+                  "val": "200",
+                  "offset": 26
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.Integer)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 18000000,
+              "status": "passed"
+            },
+            "line": 36,
+            "name": "response \"meta.msg\" is \"OK\"",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"meta.msg\"",
+                  "offset": 9
+                },
+                {
+                  "val": "\"OK\"",
+                  "offset": 23
+                }
+              ],
+              "location": "steps.StepDefinition.response_is(java.lang.String,java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 72000000,
+              "status": "passed"
+            },
+            "line": 37,
+            "name": "response \"data[0].id\" is the 5th element of the list without offset",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"data[0].id\"",
+                  "offset": 9
+                }
+              ],
+              "location": "steps.StepDefinition.responseIsThe5ThElementOfTheListWithoutOffset(java.lang.String)"
+            },
+            "keyword": "And "
+          },
+          {
+            "result": {
+              "duration": 10000000,
+              "status": "passed"
+            },
+            "line": 38,
+            "name": "response \"pagination.count\" equals data size",
+            "match": {
+              "arguments": [
+                {
+                  "val": "\"pagination.count\"",
+                  "offset": 9
+                }
+              ],
+              "location": "steps.StepDefinition.response_equals_data_size(java.lang.String)"
+            },
+            "keyword": "And "
+          }
+        ],
+        "tags": [
+          {
+            "name": "@CustomOffset"
+          }
+        ]
+      }
+    ],
+    "name": "Validating GIPHY Search API with different query params search",
+    "description": "",
+    "id": "validating-giphy-search-api-with-different-query-params-search",
+    "keyword": "Feature",
+    "uri": "file:src/test/java/features/queryparams.feature",
+    "tags": []
+  }
+]
