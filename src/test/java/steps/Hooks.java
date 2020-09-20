@@ -10,6 +10,7 @@ import static io.restassured.RestAssured.given;
 
 public class Hooks {
 
+
     @Before("@CustomOffset")
     public void beforeCustomOffset() throws IOException {
         StepDefinition sd = new StepDefinition();

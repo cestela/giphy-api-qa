@@ -14,6 +14,7 @@ import org.example.domain.GIF;
 import org.example.domain.Images;
 import org.hamcrest.Matcher;
 
+import java.io.FileNotFoundException;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 import java.util.*;
@@ -34,7 +35,7 @@ public class StepDefinition {
 
 
     @Given("a set of query params")
-    public void a_set_of_query_params(DataTable dataTable) {
+    public void a_set_of_query_params(DataTable dataTable) throws FileNotFoundException {
         List <Map< String, String >> list = dataTable.asMaps(String.class, String.class);
         Map<String, String> map = list.get(0);
         Set<Map.Entry<String, String>> entries = map.entrySet();
