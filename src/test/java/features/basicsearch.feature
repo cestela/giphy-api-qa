@@ -1,6 +1,5 @@
 Feature: Validating GIPHY Search API with a Basic Search
 
-  @ignore
   Scenario: Minimum query parameters search GIFs
     Given a set of query params
       |api_key      |q        |
@@ -17,7 +16,6 @@ Feature: Validating GIPHY Search API with a Basic Search
     And response "pagination.count" is "less than" 26
     And response "pagination.total_count" is "greater than" 0
 
-  @ignore
   Scenario: Minimum query parameters search Stickers
     Given a set of query params
       |api_key      |q        |
@@ -34,7 +32,6 @@ Feature: Validating GIPHY Search API with a Basic Search
     And response "pagination.count" is "less than" 26
     And response "pagination.total_count" is "greater than" 0
 
-  @ignore
   Scenario: Wrong api_key search
     Given a set of query params
       |api_key      |q        |
@@ -43,7 +40,6 @@ Feature: Validating GIPHY Search API with a Basic Search
     Then response status is 403
     And response "message" is "Invalid authentication credentials"
 
-  @ignore
   Scenario: No api_key in query params
     Given a set of query params
      |q        |
@@ -52,7 +48,6 @@ Feature: Validating GIPHY Search API with a Basic Search
     Then response status is 401
     And response "message" is "No API key found in request"
 
-  @ignore
   Scenario: No results search
     Given a set of query params
       |api_key      |q        |

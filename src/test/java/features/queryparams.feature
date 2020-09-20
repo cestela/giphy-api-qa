@@ -1,6 +1,5 @@
 Feature: Validating GIPHY Search API with different query params search
 
-  @ignore
   Scenario: Limited rating for retrieved GIFs
     Given a set of query params
       |api_key      |q    |rating |
@@ -10,16 +9,14 @@ Feature: Validating GIPHY Search API with different query params search
     And response gifs ratings are not
       |pg-13|r|
 
-  @ignore
   Scenario: Limited quantity for retrieved GIFs
     Given a set of query params
       |api_key      |q        | limit |
-      |dc6zaTOxFJmzC|funny+cat| 25    |
+      |dc6zaTOxFJmzC|funny+cat| 15    |
     When user sends GET operation to "/gifs/search" Giphy search API endpoint
     Then response status is 200
-    And response "data.size()" is "equal to" 25
+    And response "data.size()" is "equal to" 15
 
-  @ignore
   @CustomOffset
   Scenario: Custom offset for retrieved GIFs
     Given a set of query params

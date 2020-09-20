@@ -11,6 +11,7 @@ import io.restassured.response.Response;
 import io.restassured.response.ValidatableResponse;
 import io.restassured.specification.RequestSpecification;
 import org.example.domain.GIF;
+import org.example.domain.ImageSize;
 import org.example.domain.Images;
 import org.hamcrest.Matcher;
 
@@ -24,6 +25,8 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertEquals;
 import static org.junit.Assert.assertThat;
 import static resources.Assertions.*;
+import static resources.Utils.findAttributeByName;
+import static resources.Utils.selectMatcher;
 
 public class StepDefinition {
     RequestSpecification requestSpecification;
@@ -81,14 +84,7 @@ public class StepDefinition {
 
     @Then("response {string} is {string} {int}")
     public void response_is_greater_than(String element, String comparator, Integer value) {
-        Matcher<Integer> matcher = null;
-        if(comparator.equals("greater than")){
-            matcher = greaterThan(value);
-        }else if(comparator.equals("equal to")){
-            matcher = equalTo(value);
-        }else if(comparator.equals("less than")){
-            matcher = lessThan(value);
-        }
+        Matcher<Integer> matcher = selectMatcher(comparator, value);
 
         assertThat(jsonPath.getInt(element), Objects.requireNonNull(matcher));
     }
@@ -185,4 +181,35 @@ public class StepDefinition {
         String elementValue = jsonPath.getString(element);
         assertThat(elementValue, is(not(blankOrNullString())));
     }
+
+    @And("images {string} {string} is {string} {int}")
+    public void imagesSizeIsPx(String object, String dimension, String comparator, int size) {
+        Matcher<Integer> matcher = selectMatcher(comparator, size);
+        responseGIFList.forEach(gif -> {
+            Object o = gif.getImages();
+            ImageSize value = null;
+            try {
+                value = (ImageSize) findAttributeByName(object, o);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+            Object ob = value;
+            String valueDimension = null;
+            try {
+                valueDimension = (String) findAttributeByName(dimension,ob);
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            }
+
+            assertThat(Integer.valueOf(Objects.requireNonNull(valueDimension)), matcher);
+
+            });
+        }
+
+
+    @And("{string} is {string} {int} in the following images:")
+    public void isInTheFollowingImages(String arg0, String arg1, int arg2) {
+
+    }
+
 }

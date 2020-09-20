@@ -69,7 +69,7 @@ mvn test
 
 Each feature file includes different test cases in the form of Cucumber Scenarios.
 
-A total of 13 scenarios are provided to cover the critical functional path of the GIFs Search API. 
+A total of 20 scenarios are provided to cover the critical functional path of the GIFs Search API. 
 
 Cucumber Scenarios are written in Gherkin syntax. This is done  to make it easier for the reader to understand what is going to be tested. In addition, these step-definitions improve code reusability and maintainability.
 
