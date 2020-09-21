@@ -183,7 +183,7 @@ public class StepDefinition {
     }
 
     @And("images {string} {string} is {string} {int}")
-    public void imagesSizeIsPx(String object, String dimension, String comparator, int size) {
+    public void imagesSizeIs(String object, String dimension, String comparator, int size) {
         Matcher<Integer> matcher = selectMatcher(comparator, size);
         responseGIFList.forEach(gif -> {
             Object o = gif.getImages();
@@ -206,10 +206,5 @@ public class StepDefinition {
             });
         }
 
-
-    @And("{string} is {string} {int} in the following images:")
-    public void isInTheFollowingImages(String arg0, String arg1, int arg2) {
-
-    }
 
 }
